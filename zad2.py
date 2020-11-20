@@ -31,7 +31,7 @@ def lotto():
             players_numbers_int.sort()
             print('Player\'s numbers are: ', players_numbers_int)
             if len(players_numbers_int) != 6:
-                print('You have writen too many or too few numbers. Write exactly 6. ')
+                print('Your have writen too many or too few numbers. Write exactly 6. ')
                 continue
             elif max(players_numbers_int) > 49:
                 print('You can submit only numbers within the range of 1 to 49: ')
