@@ -10,7 +10,6 @@
 from flask import Flask, render_template, request
 import datetime
 import random
-#from zad3_ import reversed_lotto
 
 app = Flask('Witaj użytkowniku!')\
 
@@ -20,23 +19,20 @@ def index():
 
 @app.route('/reversed_lotto', methods =['GET', 'POST'])
 def reversed_lotto():
-    minimum = 0
-    maximum = 1000
-    count = 0
-    while True:
-        count += 1
-        if count <= 10:
-            if request.method == 'GET':
-                return render_template('index.html', minimum=0, maximum=1000, guess=int((maximum - minimum) / 2) + minimum)
-            else: # so it's POST
-                if request.form['hint'] == 'too small':
-                    return render_template('zgadywanie.html', nazwa='Za mała liczba, podaj na nowo.',
-                                   right_number=request.form['right_number'])
-                elif request.form['hint'] == 'too big':
-                    return render_template('zgadywanie.html', nazwa='Za duża liczba, podaj na nowo.',
-                                   right_number=request.form['right_number'])
-                elif request.form['hint'] =='you win':
-                    return "I won! "
+    if request.method == 'GET':
+        guess = str('500')
+        return render_template('index.html', minimum=0, maximum=1000, guess=str('500'))
+    else: # so it's POST
+        minimum = int(request.form['minimum'])
+        maximum = int(request.form['maximum'])
+        if request.form['hint'] == 'too small':
+            guess = str(int((maximum - minimum) / 2) + minimum)
+            return render_template('index.html', minimum=guess, maximum=maximum, guess=guess)
+        elif request.form['hint'] == 'too big':
+            guess = int((maximum - minimum) / 2) + minimum
+            return render_template('index.html', minimum=0, maximum=guess, guess=guess)
+        elif request.form['hint'] =='you win':
+            return "I won! "
 
 
 
