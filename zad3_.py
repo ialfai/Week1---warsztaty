@@ -18,7 +18,7 @@ def reversed_lotto():
         print("I\'m guessing: ", guess)
         answer = input("Your reply?: ")
         count += 1
-        if count < 10:
+        if count <= 10:
             if answer == 'you win':
                 print('I won!')
                 break
