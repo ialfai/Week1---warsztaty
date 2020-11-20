@@ -10,7 +10,7 @@
 from flask import Flask, render_template, request
 import datetime
 import random
-from zad3_ import reversed_lotto
+#from zad3_ import reversed_lotto
 
 app = Flask('Witaj użytkowniku!')\
 
@@ -24,11 +24,10 @@ def reversed_lotto():
     maximum = 1000
     count = 0
     while True:
-        guess = int((maximum - minimum) / 2) + minimum
         count += 1
         if count <= 10:
             if request.method == 'GET':
-                return render_template('index.html', minimum=0, maximum=1000)
+                return render_template('index.html', minimum=0, maximum=1000, guess=int((maximum - minimum) / 2) + minimum)
             else: # so it's POST
                 if request.form['hint'] == 'too small':
                     return render_template('zgadywanie.html', nazwa='Za mała liczba, podaj na nowo.',
