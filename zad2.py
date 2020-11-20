@@ -21,7 +21,8 @@ def lotto():
     numbers_six = numbers_all[0: 6]
     correct_guesses = 0
     while True:
-        players_numbers = input('Submit 6 numbers within the range of 1 and 49 (separate you numbers with a \'sprace\')\nDon\'t choose the same number twice: ')
+        players_numbers = input('Submit 6 numbers within the range of 1 and 49 \n(separate you numbers with a \'sprace\')\nDon\'t '
+                                'choose the same number twice. \nYour numbers: ')
         print('random numbers are: ', numbers_six)
         try:
             players_numbers = list(players_numbers.split(" "))
@@ -34,6 +35,9 @@ def lotto():
                 continue
             elif max(players_numbers_int) > 49:
                 print('You can submit only numbers within the range of 1 to 49: ')
+                continue
+            elif any(players_numbers_int.count(element) > 1 for element in players_numbers_int) == True:
+                print('Please don\'t submit the same number twice: ')
                 continue
             else:
                 for i in range(0, 6):
