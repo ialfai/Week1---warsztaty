@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guessing game</title>
+</head>
+<body>
+<div>Think about one particular number from 1 to 1000 and let the computer guess it.<br>
+          If the computer's guess is wrong, give it a hint: "too small" or "too big"<br>
+          If the computer's guess is right, write "You win"</div>
+
+<div>Computer's guess is {{guess}}</div>
+
+<form method="post">
+    {{nazwa}}
+    <label for="hint">Choose a hint: </label>
+        <select name="hint" id="hint">
+            <option value="too small">too small</option>
+            <option value="too big">too big</option>
+            <option value="you win">you win</option>
+        </select><br>
+    <input type="hidden" name="minimum" value="{{minimum}}">
+    <input type="hidden" name="maximum" value="{{maximum}}">
+    <input type="submit" value="Wyślij">
+</form>
+</body>
+</html>
