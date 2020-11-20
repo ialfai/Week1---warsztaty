@@ -12,7 +12,6 @@ import datetime
 import random
 from zad3_ import reversed_lotto
 
-
 app = Flask('Witaj użytkowniku!')\
 
 @app.route('/')
@@ -26,8 +25,6 @@ def reversed_lotto():
     count = 0
     while True:
         guess = int((maximum - minimum) / 2) + minimum
-        print("I\'m guessing: ", guess)
-        answer = input("Your reply?: ")
         count += 1
         if count <= 10:
             if request.method == 'GET':
