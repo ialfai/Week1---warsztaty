@@ -43,21 +43,23 @@ def gra2001():
         throw_command = input("")
         if throw_command == "":
             throw_dice1 = random.randint(2, 12)
+            print("dice throw result:", throw_dice1)
             if throw_dice1 == 7:
                 player1 = int(player1/7)
             elif throw_dice1 == 11:
                 player1 = int(player1 * 11)
             else:
                 player1 += throw_dice1
-            print(player1)
+            print("player 1 result: ", player1)
             throw_dice2 = random.randint(2, 12)
+            print("dice throw result:", throw_dice2)
             if throw_dice2 == 7:
                 player2 = int(player2/7)
             elif throw_dice2 == 11:
                 player2 = int(player2 * 11)
             else:
                 player2 += throw_dice2
-            print(player2)
+            print("player 2 result: ", player2)
     if player1 > 2001:
         return "Player1 won!"
     else:
