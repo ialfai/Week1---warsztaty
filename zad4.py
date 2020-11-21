@@ -19,18 +19,21 @@ def index():
 
 @app.route('/reversed_lotto', methods =['GET', 'POST'])
 def reversed_lotto():
+
     if request.method == 'GET':
-        guess = str('500')
-        return render_template('index.html', minimum=0, maximum=1000, guess=str('500'))
+        guess1 = "500"
+        minimum = 0
+        maximum = 1000
+        return render_template('index.html', minimum=minimum, maximum=maximum, guess=int(guess))
     else: # so it's POST
-        minimum = int(request.form['minimum'])
-        maximum = int(request.form['maximum'])
+        minimum = int(request.form['minimum'])  # =500
+        maximum = int(request.form['maximum'])  # =1000
         if request.form['hint'] == 'too small':
-            guess = str(int((maximum - minimum) / 2) + minimum)
+            guess = str(int((maximum - minimum) / 2) + minimum) #= 1000/2+0 = 500
             return render_template('index.html', minimum=guess, maximum=maximum, guess=guess)
         elif request.form['hint'] == 'too big':
             guess = int((maximum - minimum) / 2) + minimum
-            return render_template('index.html', minimum=0, maximum=guess, guess=guess)
+            return render_template('index.html', minimum=minimum, maximum=guess, guess=guess)
         elif request.form['hint'] =='you win':
             return "I won! "
 

@@ -18,7 +18,57 @@
 #     Rzut gracza, powinien odbywać się po naciśnięciu przez użytkownika klawisza enter.
 #     Rzut komputera następuje automatycznie, po rzucie gracza. Zakończ program w momencie,
 #     gdy gracz, lub komputer osiągnie więcej niż 2001 punktów.
-#
+import random
+
+def truornot(a, b):
+    if a < 2001:
+        z = True
+    else:
+        z = False
+    if b < 2001:
+        y = True
+    else:
+        y = False
+    if z + y == 2:
+        return True
+    elif z + y < 2:
+        return False
+
+
+
+def gra2001():
+    player1 = 0
+    player2 = 0
+    while truornot(player1, player2):
+        throw_command = input("")
+        if throw_command == "":
+            throw_dice1 = random.randint(2, 12)
+            if throw_dice1 == 7:
+                player1 = int(player1/7)
+            elif throw_dice1 == 11:
+                player1 = int(player1 * 11)
+            else:
+                player1 += throw_dice1
+            print(player1)
+            throw_dice2 = random.randint(2, 12)
+            if throw_dice2 == 7:
+                player2 = int(player2/7)
+            elif throw_dice2 == 11:
+                player2 = int(player2 * 11)
+            else:
+                player2 += throw_dice2
+            print(player2)
+    if player1 > 2001:
+        return "Player1 won!"
+    else:
+        return "Player2 won!"
+
+print(gra2001())
+
+
+
+
+
 # Modyfikacja 1
 #
 # Zauważyłeś pewno, że gra w obecnej wersji jest mało interaktywna i sprowadza się tylko
