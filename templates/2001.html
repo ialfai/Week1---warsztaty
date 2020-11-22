@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2001 Game</title>
+</head>
+<body>
+<div>For each dice throw, submit a throw-code: D3, D4, D6, D8, D10, D12, D20, D100</div><br>
+
+<form method="post">
+    <label for="throw-code1">Choose a dice: </label>
+        <select name="throw-code1" id="throw-code1">
+            <option value="D3">D3</option>
+            <option value="D4">D4</option>
+            <option value="D6">D6</option>
+            <option value="D8">D8</option>
+            <option value="D10">D10</option>
+            <option value="D12">D12</option>
+            <option value="D20">D20</option>
+            <option value="D100">D100</option>
+        </select><br>
+        <label for="throw-code2">Choose a second dice: </label>
+        <select name="throw-code2" id="throw-code2">
+            <option value="D3">D3</option>
+            <option value="D4">D4</option>
+            <option value="D6">D6</option>
+            <option value="D8">D8</option>
+            <option value="D10">D10</option>
+            <option value="D12">D12</option>
+            <option value="D20">D20</option>
+            <option value="D100">D100</option>
+        </select><br>
+
+    <input type="hidden" name="throw_result" value="{{dice_result}}">
+    <input type="hidden" name="maximum" value="{{maximum}}">
+    <input type="hidden" name="guess" value="{{guess}}">
+
+    <input type="submit" value="Wyślij">
+</form><br>
+
+<div>Your current score: {{dice_result}}</div>
+<div>Computer current score: {{computer_dice_result}}</div>
+
+<div>Your total score: {{dice_result}}</div>
+<div>Computer total score: {{computer_dice_result}}</div>
+
+</body>
+</html>

@@ -44,11 +44,8 @@ def dice():
         print('Wrong code')
     else:
         code_splited = list(code.split("D"))
-        print(code_splited)
         x = int(code_splited[0])
-        print('x: ', x)
         y = int(code_splited[1].replace("+", "-").split("-")[0])
-        print('y: ', y)
         if y not in [3, 4, 6, 8, 10, 12, 20, 100]:
             print('Wrong code')
         else:
@@ -58,7 +55,6 @@ def dice():
                 z = int(code[-2:])
             else:
                 z = 0
-            print('z: ', z)
             for i in range(0, x):
                 throw = random.randint(1, y)
                 print('throw: ', throw)
