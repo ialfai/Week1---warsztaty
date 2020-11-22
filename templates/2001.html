@@ -31,18 +31,22 @@
             <option value="D100">D100</option>
         </select><br>
 
-    <input type="hidden" name="throw_result" value="{{dice_result}}">
-    <input type="hidden" name="maximum" value="{{maximum}}">
-    <input type="hidden" name="guess" value="{{guess}}">
+    <input type="hidden" name="dice_result" value="{{dice_result}}">
+    <input type="hidden" name="computer_dice_result" value="{{computer_dice_result}}">
+    <input type="hidden" name="total_result" value="{{total_result}}">
+    <input type="hidden" name="computer_total" value="{{computer_total}}">
+
 
     <input type="submit" value="Wyślij">
 </form><br>
 
-<div>Your current score: {{dice_result}}</div>
-<div>Computer current score: {{computer_dice_result}}</div>
+<div>Your this round score: {{dice_result}}</div>
+<div>Computer this round score: {{computer_dice_result}}</div><br>
 
-<div>Your total score: {{dice_result}}</div>
-<div>Computer total score: {{computer_dice_result}}</div>
+<div>Your total score: {{total_result}}</div>
+<div>Computer total score: {{computer_total}}</div>
+
+<b>{{extra}}</b>
 
 </body>
 </html>
