@@ -64,16 +64,16 @@ def gra2001():
         dices = ['D3', 'D4', 'D6', 'D8', 'D10', 'D12', 'D20', 'D100']
         throw_code1 = request.form['throw-code1']
         throw_code2 = request.form['throw-code2']
-        #dice throw for player
+        #2 dice throws for player
         dice_result1 = dice(throw_code1)
         dice_result2 = dice(throw_code2)
         dice_result = dice_result1+dice_result2 # liczba
-        #dice throw for computer
+        #2 dice throws for computer
         computer_dice_result1 = dice(dices[random.randint(0, 7)])
         computer_dice_result2 = dice(dices[random.randint(0, 7)])
         computer_dice_result = computer_dice_result1 + computer_dice_result2 # liczba
-        #appending the total
-        if truornot(total_result, computer_total):
+        #calculating the total score, depending on the number
+        if truornot(total_result, computer_total): # this is to know if the score is below 2001
             if dice_result == 7:
                 total_result = int(total_result/7)
             elif dice_result == 11:
@@ -93,11 +93,7 @@ def gra2001():
             return render_template('2001.html',
                                total_result=total_result,
                                computer_total=computer_total, extra="We have a winner")
-        # elif request.form['hint'] == 'too big':
-        #     guess = int((maximum - minimum) / 2) + minimum
-        #     return render_template('2001.html', minimum=minimum, maximum=guess, guess=guess)
-        # elif request.form['hint'] =='you win':
-        #     return "I won! "
+
 
 
 app.run(debug=True)
